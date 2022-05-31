@@ -1,5 +1,6 @@
 package com.aldikitta.daggerexampledi
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import javax.inject.Inject
@@ -12,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerSmartPhoneComponent.create()
+        (application as SmartPhoneApplication).smartPhoneComponent
             .inject(this)
-        smartPhone.makeACallWithRecording()
+
     }
 }
